@@ -22,6 +22,8 @@ public interface PodHealthCountService {
 
     V1PodList fetchPodList() throws IOException, ApiException;
 
+    int getServicesInNamespace() throws ApiException, IOException;
+
     PodHealthResponse fetchApplicationStatus(V1PodList podList);
 
   //  Health getKafkaHealth();
@@ -29,8 +31,8 @@ public interface PodHealthCountService {
     Map<String,Object> fetchOverAllStatus(PodHealthResponse podHealthResponse,String health,String map);
 
     String fetchYugabyteDBStatus();
-
-
+//
+//
     String getKafkaStatus();
 
 

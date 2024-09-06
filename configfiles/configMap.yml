@@ -3,11 +3,11 @@ kind: ConfigMap
 metadata:
   name: healthcheckconfig
 data:
-  health.applicationlist: il-audit-services,il-outward-channel-service,il-outward-channel-service-soap
+  health.applicationlist: il-audit-services-dapr,il-imps-incoming-services-dapr,il-imps-outgoing-services-dapr
   health.namespace.value: insulationlayer
   health.application.criteria: percentage
-  health.servicelist: ${SERVICE_LIST_WITH_FLAG:{'il-audit-services':'N','il-outward-channel-service':'Y','il-outward-channel-service-soap':'Y'}}
-  spring.kafka.bootstrap-servers: 98.70.50.3:9092
+  health.servicelist: ${SERVICE_LIST_WITH_FLAG:{'il-audit-services-dapr':'Y','il-imps-incoming-services-dapr':'Y','il-imps-outgoing-services-dapr':'Y'}}
+  spring.kafka.bootstrap-servers: 20.219.10.194:39092
   spring.kafka.consumer.auto-offset-reset: latest
   spring.kafka.consumer.group-id: my-group
   spring.kafka.consumer.key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
@@ -16,14 +16,15 @@ data:
   spring.kafka.consumer.value-serializer: org.apache.kafka.common.serialization.StringSerializer
   management.endpoint.health.show-details: always
   management.endpoints.web.exposure.include:  health,info
-  spring.datasource.url: jdbc:postgresql://20.40.42.101:5433/il-outward-gcp-poc-db
-  spring.datasource.username: yugabyte
-  spring.datasource.password: Ybdbazureecifpoc@123$
-  spring.datasource.driver-class-name: org.postgresql.Driver
-  spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+#  spring.datasource.url: jdbc:postgresql://20.40.42.101:5433/imps_payment_switch_outward_hdfc_qa_txn
+#  spring.datasource.username: iluser
+#  spring.datasource.password: Ybdbazureecifpoc@123$
+#  spring.datasource.driver-class-name: org.postgresql.Driver
+#  spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
   
 
 
 
+#  health.applicationlist: il-audit-services,il-outward-channel-service,il-outward-channel-service-soap
 
 

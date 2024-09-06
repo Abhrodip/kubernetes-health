@@ -83,31 +83,31 @@ spec:
                 configMapKeyRef:
                   name: healthcheckconfig
                   key: management.endpoints.web.exposure.include
-            - name: dataSourceUrl
-              valueFrom:
-                configMapKeyRef:
-                  name: healthcheckconfig
-                  key: spring.datasource.url
-            - name: dbUserName
-              valueFrom:
-                configMapKeyRef:
-                  name: healthcheckconfig
-                  key: spring.datasource.username
-            - name: dbPassword
-              valueFrom:
-                configMapKeyRef:
-                  name: healthcheckconfig
-                  key: spring.datasource.password
-            - name: driverClass
-              valueFrom:
-                configMapKeyRef:
-                  name: healthcheckconfig
-                  key: spring.datasource.driver-class-name
-            - name: dialect
-              valueFrom:
-                configMapKeyRef:
-                  name: healthcheckconfig
-                  key: spring.jpa.properties.hibernate.dialect
+#            - name: dataSourceUrl
+#              valueFrom:
+#                configMapKeyRef:
+#                  name: healthcheckconfig
+#                  key: spring.datasource.url
+#            - name: dbUserName
+#              valueFrom:
+#                configMapKeyRef:
+#                  name: healthcheckconfig
+#                  key: spring.datasource.username
+#            - name: dbPassword
+#              valueFrom:
+#                configMapKeyRef:
+#                  name: healthcheckconfig
+#                  key: spring.datasource.password
+#            - name: driverClass
+#              valueFrom:
+#                configMapKeyRef:
+#                  name: healthcheckconfig
+#                  key: spring.datasource.driver-class-name
+#            - name: dialect
+#              valueFrom:
+#                configMapKeyRef:
+#                  name: healthcheckconfig
+#                  key: spring.jpa.properties.hibernate.dialect
 
 
 

@@ -2,7 +2,9 @@ package com.gke.pod.health.controller;
 
 import com.gke.pod.health.entity.PodHealthResponse;
 import com.gke.pod.health.service.PodHealthCountService;
+import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.V1PodList;
+import io.kubernetes.client.openapi.models.V1Service;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.sql.DataSource;
+import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -39,6 +43,8 @@ public class PodHealthMonitorController {
             String kafkaStatus=podHealthCountService.getKafkaStatus();
             String yugabyteStatus=podHealthCountService.fetchYugabyteDBStatus();
 
+
+
             Map<String,Object> finalStatus= podHealthCountService.fetchOverAllStatus(podHealthResponse,kafkaStatus,yugabyteStatus);
             return ResponseEntity.ok(finalStatus);
         } catch (Exception e) {
@@ -46,5 +52,10 @@ public class PodHealthMonitorController {
             return new ResponseEntity<>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
+    }
+
+    @GetMapping("/services")
+    public int getServices() throws ApiException, IOException {
+        return podHealthCountService.getServicesInNamespace();
     }
 }
